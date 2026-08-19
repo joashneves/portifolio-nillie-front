@@ -1,0 +1,28 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './contexts/AuthContext'
+import Navbar from './components/Navbar/Navbar'
+import Home from './pages/home/Home'
+import Categoria from './pages/categoria/Categoria'
+import Login from './pages/login/Login'
+import Painel from './pages/painelAdministrador/Painel'
+import './index.css'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Navbar />
+        <main className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/categoria/:id" element={<Categoria />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Painel />} />
+          </Routes>
+        </main>
+      </AuthProvider>
+    </BrowserRouter>
+  )
+}
+
+export default App
