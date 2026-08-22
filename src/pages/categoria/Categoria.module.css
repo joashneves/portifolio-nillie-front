@@ -1,5 +1,5 @@
 .page {
-  padding: 24px 0;
+  padding: 16px 32px;
 }
 
 .back {
@@ -14,42 +14,28 @@
   width: 100%;
   max-height: 400px;
   object-fit: cover;
-  border-radius: 10px;
   margin-bottom: 24px;
 }
 
 .grid {
   columns: 4 220px;
-  column-gap: 16px;
-  margin-top: 20px;
+  column-gap: 8px;
+  margin-top: 8px;
 }
 
-.card {
-  break-inside: avoid;
-  margin-bottom: 16px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  display: inline-block;
-  width: 100%;
+.sugestoes {
+  margin-top: 64px;
 }
 
-.card img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  display: block;
+.sugestoes h2 {
+  margin-bottom: 24px;
 }
 
-.card h4 {
-  margin: 10px 14px 4px;
-  font-size: 16px;
-}
-
-.card p {
-  margin: 0 14px 12px;
-  font-size: 13px;
-  color: var(--text);
+.sugestoesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 113px;
+  padding: 28px 252px;
 }
 
 .empty {

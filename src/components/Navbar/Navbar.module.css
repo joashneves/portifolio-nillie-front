@@ -38,42 +38,6 @@
 
 .links a:hover {
   color: var(--text-h);
-  
+
 }
 
-.social {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-left: auto;
-}
-
-.socialLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--social-bg);
-  border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.socialLink:hover {
-  transform: scale(1.2);
-  box-shadow:
-    0 0 8px var(--accent),
-    0 0 16px var(--accent-border);
-}
-
-.socialLink img {
-  width: 20px;
-  height: 20px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .socialLink img {
-    filter: invert(1);
-  }
-}

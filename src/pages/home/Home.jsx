@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
+import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import styles from './Home.module.css'
 
 export default function Home() {
@@ -24,18 +24,7 @@ export default function Home() {
       </div>
       <div className={styles.grid}>
         {categorias.map((cat) => (
-          <Link
-            to={`/categoria/${cat.id}`}
-            key={cat.id}
-            className={styles.card}
-          >
-            {cat.imagem_url && (
-              <img src={cat.imagem_url} alt={cat.nome} className={styles.thumb} />
-            )}
-            <div className={styles.info}>
-              <h3>{cat.nome}</h3>
-            </div>
-          </Link>
+          <CategoryCard key={cat.id} categoria={cat} />
         ))}
       </div>
     </div>
