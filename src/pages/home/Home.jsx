@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
 import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import styles from './Home.module.css'
+import TitleCompoente from '../../components/TitleCompoente/TitleCompoente'
 
 export default function Home() {
   const [categorias, setCategorias] = useState([])
@@ -19,9 +20,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.title}>
-      <h1>Nicolle Melo Dias Neves</h1>
-      </div>
+       <TitleCompoente/> 
       <div className={styles.grid}>
         {categorias.map((cat) => (
           <CategoryCard key={cat.id} categoria={cat} />

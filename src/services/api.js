@@ -62,16 +62,18 @@ export const api = {
 
   getCategoria: (id) => request(`/categorias_de_imagens/${id}`),
 
-  createCategoria: (nome, imagem) => {
+  createCategoria: (nome, imagem, ordem) => {
     const formData = new FormData()
     formData.append('nome', nome)
+    if (ordem !== '' && ordem != null) formData.append('ordem', ordem)
     if (imagem) formData.append('imagem', imagem)
     return request('/categorias_de_imagens', { method: 'POST', body: formData })
   },
 
-  updateCategoria: (id, nome, imagem) => {
+  updateCategoria: (id, nome, imagem, ordem) => {
     const formData = new FormData()
     formData.append('nome', nome)
+    if (ordem !== '' && ordem != null) formData.append('ordem', ordem)
     if (imagem) formData.append('imagem', imagem)
     return request(`/categorias_de_imagens/${id}`, {
       method: 'PATCH',

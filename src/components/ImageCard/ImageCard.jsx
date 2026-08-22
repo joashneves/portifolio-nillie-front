@@ -3,9 +3,10 @@ import styles from './ImageCard.module.css'
 export default function ImageCard({ imagem }) {
   return (
     <div className={styles.card}>
-      {imagem.imagem_url && (
-        <img src={imagem.imagem_url} alt={imagem.nome} />
-      )}
+      <img
+        src={imagem?.imagem_url || '/placeholder.svg'}
+        alt={imagem?.nome || 'Imagem'}
+      />
     </div>
   )
 }

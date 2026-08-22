@@ -6,21 +6,25 @@ import Categoria from './pages/categoria/Categoria'
 import Login from './pages/login/Login'
 import Painel from './pages/painelAdministrador/Painel'
 import './index.css'
+import About from './pages/about/About'
 
 function App() {
   return (
     <BrowserRouter>
+
       <AuthProvider>
         <Navbar />
         <main className="container">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/categoria/:id" element={<Categoria />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Painel />} />
           </Routes>
         </main>
       </AuthProvider>
+
     </BrowserRouter>
   )
 }
