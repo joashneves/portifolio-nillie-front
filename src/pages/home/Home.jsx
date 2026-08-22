@@ -17,18 +17,11 @@ export default function Home() {
 
   if (loading) return <p className={styles.empty}>Carregando...</p>
 
-  if (categorias.length === 0) {
-    return (
-      <div className={styles.page}>
-        <h2>Portfolio</h2>
-        <p className={styles.empty}>Nenhuma categoria encontrada.</p>
-      </div>
-    )
-  }
-
   return (
     <div className={styles.page}>
-      <h2>Portfolio</h2>
+      <div className={styles.title}>
+      <h1>Nicolle Melo Dias Neves</h1>
+      </div>
       <div className={styles.grid}>
         {categorias.map((cat) => (
           <Link
@@ -41,7 +34,6 @@ export default function Home() {
             )}
             <div className={styles.info}>
               <h3>{cat.nome}</h3>
-              <span>{cat.total_imagens} imagens</span>
             </div>
           </Link>
         ))}
