@@ -29,8 +29,6 @@
   height: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .socialLink img {
-    filter: invert(1);
-  }
+:global(.dark) .socialLink img {
+  filter: invert(1);
 }
