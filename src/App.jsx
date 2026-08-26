@@ -5,10 +5,13 @@ import Navbar from './components/Navbar/Navbar'
 import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 import Home from './pages/home/Home'
 import Categoria from './pages/categoria/Categoria'
+import Colecao from './pages/colecao/Colecao'
 import Login from './pages/login/Login'
 import Painel from './pages/painelAdministrador/Painel'
 import './index.css'
 import About from './pages/about/About'
+import Footer from './components/Footer/Footer'
+import Menu from './pages/menu/Menu'
 
 function App() {
   return (
@@ -20,11 +23,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/menu" element={<Menu />} />
               <Route path="/categoria/:id" element={<Categoria />} />
+              <Route path="/colecao/:id" element={<Colecao />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Painel />} />
             </Routes>
           </main>
+          <Footer />
           <ThemeToggle />
         </AuthProvider>
       </ThemeProvider>

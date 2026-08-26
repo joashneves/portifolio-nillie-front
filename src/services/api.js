@@ -62,10 +62,20 @@ export const api = {
 
   getCategoria: (id) => request(`/categorias_de_imagens/${id}`),
 
-  createCategoria: (nome, imagem, ordem) => {
+  createCategoria: async (nome, imagem, ordem) => {
+    if (!ordem) {
+      const cats = await request('/categorias_de_imagens')
+      const ordens = cats.map((c) => c.ordem).filter((o) => o != null).sort((a, b) => a - b)
+      let next = 1
+      for (const o of ordens) {
+        if (o === next) next++
+        else break
+      }
+      ordem = next
+    }
     const formData = new FormData()
     formData.append('nome', nome)
-    if (ordem !== '' && ordem != null) formData.append('ordem', ordem)
+    formData.append('ordem', ordem)
     if (imagem) formData.append('imagem', imagem)
     return request('/categorias_de_imagens', { method: 'POST', body: formData })
   },
@@ -73,7 +83,7 @@ export const api = {
   updateCategoria: (id, nome, imagem, ordem) => {
     const formData = new FormData()
     formData.append('nome', nome)
-    if (ordem !== '' && ordem != null) formData.append('ordem', ordem)
+    formData.append('ordem', ordem || 0)
     if (imagem) formData.append('imagem', imagem)
     return request(`/categorias_de_imagens/${id}`, {
       method: 'PATCH',
@@ -117,4 +127,41 @@ export const api = {
     request(`/categorias_de_imagens/${categoriaId}/imagens/${id}`, {
       method: 'DELETE',
     }),
+
+  // Coleções
+  getColecaos: () => request('/colecaos'),
+
+  getColecao: (id) => request(`/colecaos/${id}`),
+
+  createColecao: async (nome, imagem, ordem) => {
+    if (!ordem) {
+      const cols = await request('/colecaos')
+      const ordens = cols.map((c) => c.ordem).filter((o) => o != null).sort((a, b) => a - b)
+      let next = 1
+      for (const o of ordens) {
+        if (o === next) next++
+        else break
+      }
+      ordem = next
+    }
+    const formData = new FormData()
+    formData.append('nome', nome)
+    formData.append('ordem', ordem)
+    if (imagem) formData.append('imagem', imagem)
+    return request('/colecaos', { method: 'POST', body: formData })
+  },
+
+  updateColecao: (id, nome, imagem, ordem) => {
+    const formData = new FormData()
+    formData.append('nome', nome)
+    formData.append('ordem', ordem || 0)
+    if (imagem) formData.append('imagem', imagem)
+    return request(`/colecaos/${id}`, {
+      method: 'PATCH',
+      body: formData,
+    })
+  },
+
+  deleteColecao: (id) =>
+    request(`/colecaos/${id}`, { method: 'DELETE' }),
 }

@@ -2,5 +2,91 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 113px;
-  padding: 252px 252px;
+  padding: 64px 252px;
+  justify-items: center;
+  justify-content: center;
+}
+
+.grid_imagens {
+  columns: 4 220px;
+  column-gap: 8px;
+  padding: 16px 32px;
+}
+
+.section {
+  margin-top: 64px;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text-h);
+}
+
+.colecaoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 16rem;
+  height: 16rem;
+  transition: transform 0.25s ease;
+}
+
+.colecaoCard:hover {
+  transform: scale(1.05);
+}
+
+.colecaoCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.25s ease;
+}
+
+.colecaoCard:hover img {
+  filter: brightness(0.55);
+}
+
+.colecaoCard h3 {
+  position: absolute;
+  color: #fff;
+  font-family: var(--henny-penny);
+  font-size: clamp(20px, 2.5vw, 32px);
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.empty {
+  color: var(--text);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 0 252px;
+}
+
+.galleryItem {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  transition: transform 0.25s ease;
+  display: block;
+}
+
+.galleryItem:hover {
+  transform: scale(1.03);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

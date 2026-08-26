@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: auto;
+  
 }
 
 .socialLink {
@@ -14,14 +14,12 @@
   border-radius: 50%;
   background-color: var(--social-bg);
   border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
 .socialLink:hover {
-  transform: scale(1.2);
-  box-shadow:
-    0 0 8px var(--accent),
-    0 0 16px var(--accent-border);
+  transform: scale(1.15);
+  background-color: var(--accent-bg);
 }
 
 .socialLink img {

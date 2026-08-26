@@ -1,19 +1,22 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  --text: #3E5Ba3;
+  --text-h: #000000;
+  --text-h-hover: #B57DDA;
+  --bg: #e1d7e4;
+  --border: #e1d7e4;
+  --border-admin: #161616;
+  --code-bg: #c8d4e8;
+  --accent: #75CBD1;
+  --accent-bg: #B57DDA;
+  --accent-border: rgba(117, 203, 209, 0.5);
+  --social-bg: #e1d7e4;
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-  --background-color: #1c1c1c;
+  --linear-container: linear-gradient(180deg, #3E5Ba3 0%, #41478B 100%);
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Elsie Swash Caps', 'Ribeye', system-ui, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
+  --henny-penny: "Henny Penny", system-ui;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -25,17 +28,38 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/*
+claro cinza (alice blue) - DAE8FB
+rosa claro (thistle) - F2D2FF
+verde azul (pearl aqua) - 75CBD1
+Dusk blue - 3E5Ba3
+deep navy - 0c0d45
 
+Porcelain - FFfFF6
+Bone - E8E2D4
+Lilac Ash - AAA0BB
+Lavender - B57DDA
+French blue - 41478B
+
+Soft blush - FFDBDA
+Old rose - DB7F8E
+Pale Slate - D5C5C8
+Cool Steel - 9DA3A3
+Taupe Grey - 604D53
+*/
 :root.dark {
-  --text: #9ca3af;
-  --text-h: #f3f4f6;
-  --bg: #1c1c1c;
-  --border: #2e303a;
-  --code-bg: #1f2028;
-  --accent: #c084fc;
-  --accent-bg: rgba(192, 132, 252, 0.15);
-  --accent-border: rgba(192, 132, 252, 0.5);
-  --social-bg: rgba(47, 48, 58, 0.5);
+  --text: #FFFFF6;
+  --text-h: #FFFFF6;
+  --text-h-hover: #DB7F8E;
+  --linear-container: linear-gradient(180deg, #3E5Ba3 0%, #0c0d45 100%);
+  --bg: #604D53;
+  --linear-bg: linear-gradient(180deg, #3E5Ba3 0%, #0c0d45 100%);
+  --border: #604D53;
+  --code-bg: #131450;
+  --accent: #75CBD1;
+  --accent-bg: #DB7F8E;
+  --accent-border: rgba(117, 203, 209, 0.5);
+  --social-bg: #604D53;
   --shadow:
     rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
 }

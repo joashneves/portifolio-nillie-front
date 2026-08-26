@@ -2,6 +2,23 @@ import { useEffect } from 'react'
 import styles from './Lightbox.module.css'
 
 export default function Lightbox({ imagens, index, onClose, onPrev, onNext }) {
+  if (index === null || !imagens[index]) return null
+
+  const imagem = imagens[index]
+
+  return (
+    <LightboxOverlay
+      imagem={imagem}
+      index={index}
+      total={imagens.length}
+      onClose={onClose}
+      onPrev={onPrev}
+      onNext={onNext}
+    />
+  )
+}
+
+function LightboxOverlay({ imagem, index, total, onClose, onPrev, onNext }) {
   useEffect(() => {
     function handleKey(e) {
       if (e.key === 'Escape') onClose()
@@ -16,10 +33,6 @@ export default function Lightbox({ imagens, index, onClose, onPrev, onNext }) {
       document.body.style.overflow = ''
     }
   }, [onClose, onPrev, onNext])
-
-  if (index === null || !imagens[index]) return null
-
-  const imagem = imagens[index]
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -48,10 +61,10 @@ export default function Lightbox({ imagens, index, onClose, onPrev, onNext }) {
           alt={imagem.nome || ''}
           className={styles.image}
         />
-        {imagem.nome && <p className={styles.caption}>{imagem.nome}</p>}
+        {imagem.descricao && <p className={styles.caption}>{imagem.descricao}</p>}
       </div>
 
-      {index < imagens.length - 1 && (
+      {index < total - 1 && (
         <button
           className={`${styles.arrow} ${styles.next}`}
           onClick={(e) => { e.stopPropagation(); onNext() }}

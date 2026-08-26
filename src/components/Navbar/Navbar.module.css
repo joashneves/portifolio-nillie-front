@@ -4,33 +4,35 @@
   align-items: center;
   column-gap: 32px;
   padding: 16px 24px;
-  background-color: var(--bg);
+  background-color: var(--container);
   border-bottom: 1px solid var(--border);
+}
+.socialLinks{
+  margin-left: auto;
+
 }
 
 .brand {
-  font-size: 22px;
+  padding: 0px 16px;
+  font-family: "Elsie Swash Caps", serif;
+  font-style: bold;
+  font-size: 26px;
   font-weight: 600;
   color: var(--text-h);
   text-decoration: none;
-  transition: transform 0.25s ease, filter 0.25s ease, text-shadow 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .brand:hover {
+  color: var(--text-h-hover);
   transform: scale(1.15);
-  filter: brightness(1.2);
-  text-shadow:
-    0 0 8px var(--accent),
-    0 0 16px var(--accent-border);
 }
 
 .links {
   display: flex;
+  align-items: start;
   align-items: center;
   gap: 16px;
-}
-
-.logo {
-  height: 64px;
+  margin-right: auto;
 }
 

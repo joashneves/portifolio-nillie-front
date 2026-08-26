@@ -3,26 +3,27 @@ import { useAuth } from '../../contexts/useAuth'
 import { useTheme } from '../../contexts/ThemeContext'
 import SocialLinks from '../SocialLinks/SocialLinks'
 import styles from './Navbar.module.css'
+import LogoIcon from '../LogoIcon/LogoIcon'
 
 export default function Navbar() {
   const { user } = useAuth()
-  const { theme } = useTheme()
+
 
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.brand}>
-        <img
-          src={theme === 'dark' ? '/logo/logo_nille_oficial_modo_preto.webp' : '/logo/logo_nille_ver_1_modo_branco.webp'}
-          alt="Logo"
-          className={styles.logo}
-        />
+        <LogoIcon />
       </Link>
       <div className={styles.links}>
-        <Link to="/" className={styles.brand}>
-          Home
+        <Link to="/Menu" className={styles.brand}>
+          Menu
         </Link>
         <Link to="/About" className={styles.brand}>
           About
+        </Link>
+        <Link to="/About" className={styles.brand}>
+          Commissions
+        
         </Link>
         {user && (
           <Link to="/dashboard" className={styles.brand}>
@@ -30,7 +31,9 @@ export default function Navbar() {
           </Link>
         )}
       </div>
-      <SocialLinks />
+      <div className={styles.socialLinks}>
+        <SocialLinks />
+      </div>
     </nav>
   )
 }

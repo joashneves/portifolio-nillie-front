@@ -2,18 +2,16 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import { api } from '../../services/api'
 import ImageCard from '../../components/ImageCard/ImageCard'
-import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import Lightbox from '../../components/Lightbox/Lightbox'
-import styles from './Categoria.module.css'
+import styles from './Colecao.module.css'
 
-export default function Categoria() {
+export default function Colecao() {
   const { id } = useParams()
-  const [categoria, setCategoria] = useState(null)
-  const [sugestoes, setSugestoes] = useState([])
+  const [colecao, setColecao] = useState(null)
   const [loading, setLoading] = useState(true)
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
-  const imagens = categoria?.imagens || []
+  const imagens = colecao?.imagens || []
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), [])
   const prevImage = useCallback(() => {
@@ -25,30 +23,19 @@ export default function Categoria() {
 
   useEffect(() => {
     api
-      .getCategoria(id)
-      .then(setCategoria)
+      .getColecao(id)
+      .then(setColecao)
       .catch(console.error)
       .finally(() => setLoading(false))
   }, [id])
 
-  useEffect(() => {
-    api
-      .getCategorias()
-      .then((cats) =>
-        setSugestoes(
-          cats.filter((c) => String(c.id) !== String(id)).slice(0, 3)
-        )
-      )
-      .catch(console.error)
-  }, [id])
-
   if (loading) return <p className={styles.empty}>Carregando...</p>
-  if (!categoria) return <p className={styles.empty}>Categoria nao encontrada.</p>
+  if (!colecao) return <p className={styles.empty}>Coleção não encontrada.</p>
 
   return (
     <div className={styles.page}>
-      <div className={styles.header} style={{ backgroundImage: `url(${categoria.imagem_url})` }}>
-        <h1>{categoria.nome}</h1>
+      <div className={styles.header}>
+        <h1>{colecao.nome}</h1>
       </div>
 
       {imagens.length > 0 ? (
@@ -62,18 +49,7 @@ export default function Categoria() {
           ))}
         </div>
       ) : (
-        <p className={styles.empty}>Nenhuma imagem nesta categoria.</p>
-      )}
-
-      {sugestoes.length > 0 && (
-        <section className={styles.sugestoes}>
-          <div className={styles.sugestoesGrid}
-          style={{ gridTemplateColumns: `repeat(${sugestoes.length < 3 ? 2 : 3}, 1fr)` }}>
-            {sugestoes.map((cat) => (
-              <CategoryCard key={cat.id} categoria={cat} tamanho="16rem" />
-            ))}
-          </div>
-        </section>
+        <p className={styles.empty}>Nenhuma imagem nesta coleção.</p>
       )}
 
       <Lightbox
