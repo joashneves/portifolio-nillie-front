@@ -8,7 +8,7 @@
 }
 
 .grid_imagens {
-  columns: 4 220px;
+  columns: 3 auto;
   column-gap: 8px;
   padding: 16px 32px;
 }
