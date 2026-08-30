@@ -2,9 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
-
   justify-content: flex;
-  min-height: 50vh;
   overflow: hidden;
 }
 
@@ -19,16 +17,26 @@
   z-index: 0;
 }
 
+.title img {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
 .title h1 {
   position: relative;
   z-index: 1;
-  font-size: 112px;
+  font-size: 128px;
   color: #fff;
   font-family: var(--henny-penny);
   text-align: start;
   margin: 0 auto;
   width: 100%;
-  padding: 0 80px;
+  padding: 0 32px;
   line-height: 1.15;
   text-shadow:
     0 2px 12px rgba(0, 0, 0, 0.6),

@@ -5,7 +5,8 @@
   justify-content: center;
   gap: 12px;
   background: var(--container);
-  color: #fff;
+  color: var(--text-h);
   text-align: center;
   padding: 20px;
+  margin-bottom: 50px;
 }

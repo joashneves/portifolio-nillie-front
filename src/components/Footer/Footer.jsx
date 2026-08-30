@@ -9,7 +9,6 @@ export default function Footer() {
      <LogoIcon />
       <SocialLinks />
       <p>Feito com amor S2 por <a href="https://github.com/joashneves" target="_blank" rel="noopener noreferrer">Joashneves</a></p>
-      <p>© 2026 Nille Neves. Todos os direitos reservados.</p>
     </footer>
   );
 }

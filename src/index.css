@@ -2,6 +2,7 @@
   --text: #3E5Ba3;
   --text-h: #000000;
   --text-h-hover: #B57DDA;
+  --header: #e1d7e4;
   --bg: #e1d7e4;
   --border: #e1d7e4;
   --border-admin: #161616;
@@ -51,7 +52,7 @@ Taupe Grey - 604D53
   --text: #FFFFF6;
   --text-h: #FFFFF6;
   --text-h-hover: #DB7F8E;
-  --linear-container: linear-gradient(180deg, #3E5Ba3 0%, #0c0d45 100%);
+  --header: #604D53;
   --bg: #604D53;
   --linear-bg: linear-gradient(180deg, #3E5Ba3 0%, #0c0d45 100%);
   --border: #604D53;
@@ -94,6 +95,9 @@ h2 {
 }
 
 p {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
   margin: 0;
 }
 
@@ -102,5 +106,6 @@ img {
 }
 
 a {
-  color: var(--accent);
+  color: var(--text-h-hover);
+  text-decoration: none;
 }

@@ -67,8 +67,7 @@ export default function Categoria() {
 
       {sugestoes.length > 0 && (
         <section className={styles.sugestoes}>
-          <div className={styles.sugestoesGrid}
-          style={{ gridTemplateColumns: `repeat(${sugestoes.length < 3 ? 2 : 3}, 1fr)` }}>
+          <div className={styles.sugestoesGrid}>
             {sugestoes.map((cat) => (
               <CategoryCard key={cat.id} categoria={cat} tamanho="16rem" />
             ))}

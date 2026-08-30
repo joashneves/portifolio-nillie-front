@@ -2,7 +2,7 @@ import styles from './SocialLinks.module.css'
 
 const redes = [
   { label: 'Email', icon: '/email.svg', link: 'mailto:nilleneves@example.com' },
-  { label: 'Instagram', icon: '/instagram.svg', link: 'https://www.instagram.com/nilleneves' },
+  { label: 'Instagram', icon: '/instagram-logo.svg', link: 'https://www.instagram.com/nilleneves' },
   { label: 'ArtStation', icon: '/artstation-svgrepo-com.svg', link: 'https://www.artstation.com/nilleneves' },
   { label: 'VG icon', icon: '/vgen.svg', link: 'https://vgen.co/bynillearts' },
 ]

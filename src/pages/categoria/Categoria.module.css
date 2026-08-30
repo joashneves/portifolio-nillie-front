@@ -44,9 +44,8 @@
 
 .sugestoesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 113px;
-  padding: 64px 252px;
+  grid-template-columns: auto auto auto;
+  padding: 64px 360px;
   justify-items: center;
 }
 
