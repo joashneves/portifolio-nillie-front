@@ -19,7 +19,7 @@ export default function Navbar() {
         <Link to="/About" className={styles.brand}>
           About me
         </Link>
-        <Link to="/About" className={styles.brand}>
+        <Link to="https://nillecommission.carrd.co" className={styles.brand} target="_blank" rel="noopener noreferrer">
           Commissions
         </Link>
         <Link to="/Menu" className={styles.brand}>
