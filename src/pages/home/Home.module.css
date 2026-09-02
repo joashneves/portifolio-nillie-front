@@ -7,10 +7,29 @@
   justify-content: center;
 }
 
+.grid_categorias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+   margin-bottom: 64px;
+  padding: 1px 252px;
+  justify-items: center;
+}
+
+        
+.sectionTitle {
+  text-align: flex-start;
+  font-size: 36px;
+  font-family: "Elsie Swash Caps", serif;
+  font-style: bold;
+  font-weight: 600;
+  color: var(--text-h);
+  padding: 44px 360px 12px 360px;
+}
+
 .grid_imagens {
-  columns: 3 auto;
+  columns: 3 220px;
   column-gap: 8px;
-  padding: 16px 32px;
+  padding: 16px 16px;
 }
 
 .section {

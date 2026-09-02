@@ -39,13 +39,19 @@
 }
 
 .sugestoes h2 {
-  margin-bottom: 24px;
+  font-family: var(--heading);
+    font-style: bold;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: start;
+  padding: 0 21rem;
+  margin-bottom: 12px;
 }
 
 .sugestoesGrid {
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 64px 360px;
+  padding: 16px 360px;
   justify-items: center;
 }
 

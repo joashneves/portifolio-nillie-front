@@ -21,11 +21,7 @@ export default function Menu() {
   return (
     <div className={styles.page}>
        <TitleCompoente/> 
-      <div className={styles.grid}>
-        {categorias.map((cat) => (
-          <CategoryCard key={cat.id} categoria={cat} tamanho="16rem" />
-        ))}
-      </div>
+      
     </div>
   )
 }

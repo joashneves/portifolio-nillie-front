@@ -64,9 +64,9 @@ export default function Categoria() {
       ) : (
         <p className={styles.empty}>Nenhuma imagem nesta categoria.</p>
       )}
-
       {sugestoes.length > 0 && (
         <section className={styles.sugestoes}>
+          <h2>You may also like</h2>
           <div className={styles.sugestoesGrid}>
             {sugestoes.map((cat) => (
               <CategoryCard key={cat.id} categoria={cat} tamanho="16rem" />

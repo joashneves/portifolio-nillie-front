@@ -15,15 +15,15 @@ export default function Navbar() {
         <LogoIcon />
       </Link>
       <div className={styles.links}>
-        <Link to="/Menu" className={styles.brand}>
-          Menu
-        </Link>
+        
         <Link to="/About" className={styles.brand}>
-          About
+          About me
         </Link>
         <Link to="/About" className={styles.brand}>
           Commissions
-        
+        </Link>
+        <Link to="/Menu" className={styles.brand}>
+          Sketchbook
         </Link>
         {user && (
           <Link to="/dashboard" className={styles.brand}>

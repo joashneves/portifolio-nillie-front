@@ -2,8 +2,13 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex;
+  justify-content: space-between;
+  gap: 32px;
   overflow: hidden;
+  padding: 48px 428px;
+}
+.profileImage{
+  height: 12rem;
 }
 
 .title::before {
@@ -13,8 +18,15 @@
   background-image: url('/img/twitchr.webp');
   background-size: cover;
   background-position: center;
-  filter: blur(px);
+  filter: blur(2px);
   z-index: 0;
+}
+
+.title > div {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .title img {
@@ -30,15 +42,27 @@
 .title h1 {
   position: relative;
   z-index: 1;
-  font-size: 128px;
+  font-size: 72px;
   color: #fff;
   font-family: var(--henny-penny);
   text-align: start;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 32px;
+  margin: 0 0 16px;
   line-height: 1.15;
   text-shadow:
     0 2px 12px rgba(0, 0, 0, 0.6),
     0 0 32px rgba(0, 0, 0, 0.4);
+}
+
+.title p {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.title p a {
+  color: #ffd166;
 }

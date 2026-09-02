@@ -6,6 +6,7 @@ import styles from './Home.module.css'
 import TitleCompoente from '../../components/TitleCompoente/TitleCompoente'
 import ImageCard from '../../components/ImageCard/ImageCard'
 import Lightbox from '../../components/Lightbox/Lightbox'
+import Stars from '../../components/Stars/Stars'
 
 export default function Home() {
   const [categorias, setCategorias] = useState([])
@@ -38,6 +39,15 @@ export default function Home() {
   return (
     <div className={styles.page}>
        <TitleCompoente/>
+         <h3 className={styles.sectionTitle}> Menu </h3> 
+        <Stars top="24%" left="5%" width="112px" height="112px"/>
+        <Stars top="38%" left="48%" width="112px" height="112px"/>
+        <Stars top="71%" left="17%" width="64px" height="64px"/>
+       <div className={styles.grid_categorias}>
+        {categorias.map((cat) => (
+          <CategoryCard key={cat.id} categoria={cat} tamanho="14rem" />
+        ))}
+      </div>
 
       {colecaos.length > 0 ? (
               <div className={styles.grid_imagens}>
