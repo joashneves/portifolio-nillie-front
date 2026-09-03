@@ -7,24 +7,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 50vh;
   overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-bg);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px);
 }
 
 .header h1 {
   position: relative;
   z-index: 1;
-  font-size: clamp(56px, 12vw, 140px);
+  font-size: 112px;
   color: #fff;
   font-family: var(--henny-penny);
   text-align: center;
   margin: 0 auto;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 40px;
   line-height: 1.15;
   text-shadow:
     0 2px 12px rgba(0, 0, 0, 0.6),
     0 0 32px rgba(0, 0, 0, 0.4);
+}
+
+.titleRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.titleRow img {
+  position: static;
+  flex-shrink: 0;
+}
+
+.titleRow h1 {
+  width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .grid {

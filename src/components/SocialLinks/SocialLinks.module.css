@@ -14,6 +14,7 @@
   border-radius: 50%;
   background-color: var(--social-bg);
   border: 1px solid var(--border);
+  color: #4e4461;
   transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
@@ -22,11 +23,16 @@
   background-color: var(--accent-bg);
 }
 
+.socialLink svg {
+  width: 20px;
+  height: 20px;
+}
+
 .socialLink img {
   width: 20px;
   height: 20px;
 }
 
-:global(.dark) .socialLink img {
-  filter: invert(1);
+:global(.dark) .socialLink {
+  color: #fff;
 }

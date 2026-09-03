@@ -1,6 +1,6 @@
 :root {
   --text: #3E5Ba3;
-  --text-h: #000000;
+  --text-h: #4e4461;
   --text-h-hover: #B57DDA;
   --header: #e1d7e4;
   --bg: #e1d7e4;
@@ -18,7 +18,7 @@
   --heading: 'Elsie Swash Caps', 'Ribeye', system-ui, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
   --henny-penny: "Henny Penny", system-ui;
-
+  --fraunces: "Fraunces", serif;
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -47,7 +47,114 @@ Old rose - DB7F8E
 Pale Slate - D5C5C8
 Cool Steel - 9DA3A3
 Taupe Grey - 604D53
+
+.fraunces-<uniquifier> {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
+}
+    .crimson-text-regular {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crimson-text-semibold {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crimson-text-regular-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.crimson-text-semibold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.crimson-text-bold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
 */
+.crimson-text-regular {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crimson-text-semibold {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crimson-text-regular-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.crimson-text-semibold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.crimson-text-bold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.arvo-regular {
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.arvo-bold {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.arvo-regular-italic {
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.arvo-bold-italic {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
 :root.dark {
   --text: #FFFFF6;
   --text-h: #FFFFF6;
@@ -95,9 +202,11 @@ h2 {
 }
 
 p {
-  font-family: "Courier Prime", monospace;
+  font-family: "Arvo", serif;
   font-weight: 400;
+  letter-spacing: 1px;
   font-style: normal;
+  
   margin: 0;
 }
 

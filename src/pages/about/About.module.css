@@ -1,7 +1,92 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.grid {
+.skillsSection {
+  width: 100%;
+  max-width: 900px;
+  padding: 64px 24px 64px;
+  text-align: center;
+}
+
+.skillsSection h2 {
+
+  font-family: "Elsie Swash Caps", serif;
+  font-style: bold;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 32px;
+}
+
+.skillsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 113px;
-  padding: 252px 252px;
+  gap: 32px;
+}
+
+.skillCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 36px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    rgba(0, 0, 0, 0.15) 0 12px 20px -4px,
+    rgba(0, 0, 0, 0.1) 0 6px 10px -2px;
+}
+
+.skillCardHighlight {
+  border-color: var(--accent-bg);
+  box-shadow:
+    0 0 18px rgba(181, 125, 218, 0.55),
+    0 0 42px rgba(181, 125, 218, 0.35),
+    var(--shadow);
+}
+
+.skillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  background: var(--accent-bg);
+  overflow: hidden;
+}
+
+.skillIcon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+.skillName {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+@media (max-width: 600px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,17 +1,11 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 113px;
-  padding: 64px 252px;
-  justify-items: center;
-  justify-content: center;
-}
+
 
 .grid_categorias {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-   margin-bottom: 64px;
-  padding: 1px 252px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0px 32px 64px;
   justify-items: center;
 }
 

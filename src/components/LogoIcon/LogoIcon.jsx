@@ -7,7 +7,7 @@ export default function LogoIcon() {
 
     return (<>
      <img
-          src={theme === 'dark' ? '/logo/logo_nille_oficial_modo_preto.webp' : '/logo/logo_nille_ver_1_modo_branco.webp'}
+          src={theme === 'dark' ? '/logo/logo_nille_oficial_modo_preto.webp' : '/logo/logo_nille_oficial_modo_branco.webp'}
           alt="Logo"
           className={styles.logo}
         />

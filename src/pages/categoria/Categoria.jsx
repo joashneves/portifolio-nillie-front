@@ -4,6 +4,7 @@ import { api } from '../../services/api'
 import ImageCard from '../../components/ImageCard/ImageCard'
 import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import Lightbox from '../../components/Lightbox/Lightbox'
+import Stars from '../../components/Stars/Stars'
 import styles from './Categoria.module.css'
 
 export default function Categoria() {
@@ -47,8 +48,12 @@ export default function Categoria() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.header} style={{ backgroundImage: `url(${categoria.imagem_url})` }}>
-        <h1>{categoria.nome}</h1>
+      <div className={styles.header} style={{ '--bg-img': `url(${categoria.imagem_url})` }}>
+        <div className={styles.titleRow}>
+          <Stars width="90px" height="90px" />
+          <h1>{categoria.nome}</h1>
+          <Stars width="90px" height="90px" />
+        </div>
       </div>
 
       {imagens.length > 0 ? (

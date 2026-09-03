@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { api } from '../../services/api'
 import styles from './Painel.module.css'
 
-export default function CategoriaTab({ categorias, setError, showToast }) {
+export default function CategoriaTab({ categorias, loadCategorias, setError, showToast }) {
   const [selectedCat, setSelectedCat] = useState(null)
   const [imgNome, setImgNome] = useState('')
   const [imgDescricao, setImgDescricao] = useState('')
@@ -10,6 +10,13 @@ export default function CategoriaTab({ categorias, setError, showToast }) {
   const [imgPreview, setImgPreview] = useState(null)
   const [editingImg, setEditingImg] = useState(null)
   const [uploading, setUploading] = useState(false)
+
+  const [catNome, setCatNome] = useState('')
+  const [catImagem, setCatImagem] = useState(null)
+  const [catPreview, setCatPreview] = useState(null)
+  const [catOrdem, setCatOrdem] = useState('')
+  const [editingCat, setEditingCat] = useState(null)
+  const [uploadingCat, setUploadingCat] = useState(false)
 
   const categoriasOrdenadas = [...categorias].sort(
     (a, b) => (a.ordem ?? 0) - (b.ordem ?? 0) || a.nome.localeCompare(b.nome)
@@ -23,6 +30,47 @@ export default function CategoriaTab({ categorias, setError, showToast }) {
   const clearImgFile = () => {
     setImgImagem(null)
     if (imgPreview) { URL.revokeObjectURL(imgPreview); setImgPreview(null) }
+  }
+
+  const clearCatFile = () => {
+    setCatImagem(null)
+    if (catPreview) { URL.revokeObjectURL(catPreview); setCatPreview(null) }
+  }
+
+  const handleCatSubmit = async (e) => {
+    e.preventDefault()
+    if (uploadingCat) return
+    setError(''); setUploadingCat(true)
+    try {
+      if (editingCat) {
+        await api.updateCategoria(editingCat.id, catNome, catImagem, catOrdem)
+        showToast('success', 'Categoria atualizada!')
+      } else {
+        await api.createCategoria(catNome, catImagem, catOrdem)
+        showToast('success', 'Categoria criada!')
+      }
+      setCatNome(''); clearCatFile(); setCatOrdem(''); setEditingCat(null)
+      loadCategorias()
+    } catch (err) {
+      showToast('error', err.message || 'Erro ao salvar categoria.')
+    } finally { setUploadingCat(false) }
+  }
+
+  const handleDeleteCat = async (id) => {
+    if (!confirm('Deletar esta categoria e todas as suas imagens?')) return
+    try {
+      await api.deleteCategoria(id)
+      if (selectedCat?.id === id) setSelectedCat(null)
+      loadCategorias()
+      showToast('success', 'Categoria deletada!')
+    } catch (err) { setError(err.message) }
+  }
+
+  const startEditCat = (cat) => {
+    setEditingCat(cat)
+    setCatNome(cat.nome)
+    setCatOrdem(String(cat.ordem ?? ''))
+    clearCatFile()
   }
 
   const handleImagenSubmit = async (e) => {
@@ -66,9 +114,30 @@ export default function CategoriaTab({ categorias, setError, showToast }) {
               <button onClick={() => loadCategoria(cat.id)}>
                 {String(cat.ordem ?? '').padStart(2, '0')} · {cat.nome}
               </button>
+              <div className={styles.catActions}>
+                <button className={styles.sm} onClick={() => startEditCat(cat)}>Editar</button>
+                <button className={`${styles.sm} ${styles.danger}`} onClick={() => handleDeleteCat(cat.id)}>X</button>
+              </div>
             </li>
           ))}
         </ul>
+
+        <form onSubmit={handleCatSubmit} className={styles.form}>
+          <h4>{editingCat ? 'Editar' : 'Nova'} Categoria</h4>
+          <input type="text" placeholder="Nome" value={catNome} onChange={(e) => setCatNome(e.target.value)} required />
+          <label className={styles.uploadZone}>
+            <input type="file" accept="image/*" className={styles.fileInput} onChange={(e) => { const f = e.target.files[0]; setCatImagem(f); if (catPreview) URL.revokeObjectURL(catPreview); setCatPreview(f ? URL.createObjectURL(f) : null) }} />
+            {catPreview ? <img src={catPreview} alt="Previa" /> : (
+              <><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" /><path d="M12 11v6m-3-3h6" strokeLinecap="round" /></svg><span>{editingCat ? 'Trocar imagem' : 'Escolher imagem'}</span></>
+            )}
+          </label>
+          <input type="number" min="0" placeholder="Ordem de exibicao" value={catOrdem} onChange={(e) => setCatOrdem(e.target.value)} className={styles.ordemInput} />
+          <div className={styles.formActions}>
+            <button type="submit">{editingCat ? 'Salvar' : 'Criar'}</button>
+            {editingCat && <button type="button" className={styles.secondary} onClick={() => { setEditingCat(null); setCatNome(''); setCatOrdem(''); clearCatFile() }}>Cancelar</button>}
+          </div>
+          {uploadingCat && <div className={styles.sendingOverlay}><span className={styles.spinner} /><p>Salvando...</p></div>}
+        </form>
       </aside>
 
       <main className={styles.main}>
