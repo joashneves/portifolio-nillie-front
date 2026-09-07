@@ -62,7 +62,7 @@
 .grid {
   columns: 4 220px;
   column-gap: 8px;
-  padding: 16px 32px;
+  padding: 16px 58px;
 }
 
 .sugestoes {
@@ -81,10 +81,15 @@
 }
 
 .sugestoesGrid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 16px 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 32px 64px;
   justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 
@@ -108,5 +113,57 @@
 @media (max-width: 500px) {
   .grid {
     columns: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    min-height: 40vh;
+  }
+
+  .header h1 {
+    font-size: 48px;
+  }
+
+  .titleRow img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .titleRow {
+    gap: 8px;
+  }
+
+  .grid {
+    columns: 2;
+    column-gap: 6px;
+    padding: 12px 12px;
+  }
+
+  .sugestoes {
+    margin-top: 32px;
+    padding: 0 16px;
+  }
+
+  .sugestoes h2 {
+    font-size: 22px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .sugestoesGrid {
+    padding: 12px 12px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .sugestoesGrid > * {
+    flex: 1 1 45%;
+    max-width: 48%;
+  }
+
+  .sugestoesGrid > *:nth-child(3) {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }

@@ -1,0 +1,47 @@
+.page {
+  padding: 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 36px;
+  font-family: "Elsie Swash Caps", serif;
+  font-style: bold;
+  font-weight: 600;
+  color: var(--text-h);
+  padding: 44px 360px 12px 360px;
+}
+
+.gridCategorias {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 32px 64px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.empty {
+  color: var(--text);
+  padding: 40px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    justify-content: center;
+    font-size: 26px;
+    padding: 24px 16px 8px;
+  }
+
+  .gridCategorias {
+    padding: 12px 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

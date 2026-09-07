@@ -53,3 +53,11 @@
     0 0 18px rgba(255, 255, 255, 0.55),
     0 0 36px rgba(255, 255, 255, 0.3);
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: 100% !important;
+    height: 12rem !important;
+    border-radius: 0px;
+  }
+}

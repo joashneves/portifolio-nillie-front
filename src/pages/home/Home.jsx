@@ -39,10 +39,11 @@ export default function Home() {
   return (
     <div className={styles.page}>
        <TitleCompoente/>
-         <h3 className={styles.sectionTitle}> ⯌ Menu</h3> 
+         <h3 className={styles.sectionTitle}><Stars width="16px" height="16px"/>  Menu</h3> 
        <div className={styles.grid_categorias}>
+
         {categorias.map((cat) => (
-          <CategoryCard key={cat.id} categoria={cat} tamanho="14rem" />
+          <CategoryCard key={cat.id} categoria={cat} className={styles.categoryCardMenu} tamanho="14rem" />
         ))}
       </div>
 

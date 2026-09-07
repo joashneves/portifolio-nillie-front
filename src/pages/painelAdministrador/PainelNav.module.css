@@ -1,0 +1,123 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--header);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  font-family: "Elsie Swash Caps", serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-right: 16px;
+  letter-spacing: 0.3px;
+}
+
+.brandAccent {
+  color: var(--text-h-hover);
+}
+
+.link {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: "Arvo", serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.link:hover {
+  background: color-mix(in srgb, var(--accent-bg) 25%, transparent);
+  transform: translateY(-1px);
+}
+
+.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-bg));
+  color: #fff;
+}
+
+.active:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-bg));
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user {
+  font-family: "Arvo", serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-h);
+  opacity: 0.75;
+  margin-right: 8px;
+}
+
+.ghost {
+  padding: 8px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  font-family: "Arvo", serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ghost:hover {
+  background: var(--accent-bg);
+  color: #fff;
+  border-color: var(--accent-bg);
+}
+
+.logout {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e53e3e, #db7f8e);
+  color: #fff;
+  font-family: "Arvo", serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logout:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(229, 62, 62, 0.35);
+}
+
+@media (max-width: 640px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 14px;
+  }
+
+  .brand {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+
+  .link {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .user {
+    width: 100%;
+    order: 5;
+    margin: 4px 0 0;
+  }
+}

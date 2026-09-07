@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/useAuth'
+import Stars from '../../components/Stars/Stars'
+import TitleCompoente from '../../components/TitleCompoente/TitleCompoente'
 import styles from './Login.module.css'
 
 export default function Login() {
@@ -27,24 +29,43 @@ export default function Login() {
 
   return (
     <div className={styles.page}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <h2>Login</h2>
+      <TitleCompoente />
+      <form onSubmit={handleSubmit} className={styles.card}>
+        <div className={styles.brand}>
+          <Stars width="36px" height="36px" />
+          <h2>Bem-vinda de volta</h2>
+          <Stars width="36px" height="36px" />
+        </div>
+
+        <p className={styles.subtitle}>Entre para gerenciar seu portfólio</p>
+
         {error && <p className={styles.error}>{error}</p>}
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
+
+        <label className={styles.field}>
+          <span>Usuário</span>
+          <input
+            type="text"
+            placeholder="Seu usuário"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
+            required
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Senha</span>
+          <input
+            type="password"
+            placeholder="Sua senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+            required
+          />
+        </label>
+
+        <button type="submit" className={styles.submit} disabled={loading}>
           {loading ? 'Entrando...' : 'Entrar'}
         </button>
       </form>

@@ -54,3 +54,28 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 768px) {
+  .title {
+    min-height: 40vh;
+  }
+
+  .title h1 {
+    font-size: 48px;
+    padding: 0 16px;
+  }
+
+  .titleRow {
+    margin-left: 0;
+    gap: 8px;
+  }
+
+  .titleRow img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .title::before {
+  background-position: 80% 90%;
+}
+}
