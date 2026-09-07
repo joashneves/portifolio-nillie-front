@@ -288,8 +288,9 @@
   padding-bottom: 10px;
 }
 
-.imageCard .card img {
-  width: 100%;
+.imageCard img {
+  width: 12rem;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   display: block;

@@ -29,6 +29,12 @@ export default function PainelNav({ active }) {
       >
         Coleções
       </Link>
+      <Link
+        to="/dashboard/sketchbook"
+        className={`${styles.link} ${active === 'sketchbook' ? styles.active : ''}`}
+      >
+        Sketchbook
+      </Link>
 
       <div className={styles.spacer} />
 

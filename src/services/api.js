@@ -164,4 +164,69 @@ export const api = {
 
   deleteColecao: (id) =>
     request(`/colecaos/${id}`, { method: 'DELETE' }),
+
+  // Sketchbooks
+  getSketchbooks: () => request('/sketchbooks'),
+
+  getSketchbook: (id) => request(`/sketchbooks/${id}`),
+
+  createSketchbook: async (nome, imagem, ordem) => {
+    if (!ordem) {
+      const sbs = await request('/sketchbooks')
+      const ordens = sbs.map((s) => s.ordem).filter((o) => o != null).sort((a, b) => a - b)
+      let next = 1
+      for (const o of ordens) {
+        if (o === next) next++
+        else break
+      }
+      ordem = next
+    }
+    const formData = new FormData()
+    formData.append('nome', nome)
+    formData.append('ordem', ordem)
+    if (imagem) formData.append('imagem', imagem)
+    return request('/sketchbooks', { method: 'POST', body: formData })
+  },
+
+  updateSketchbook: (id, nome, imagem, ordem) => {
+    const formData = new FormData()
+    formData.append('nome', nome)
+    formData.append('ordem', ordem || 0)
+    if (imagem) formData.append('imagem', imagem)
+    return request(`/sketchbooks/${id}`, {
+      method: 'PATCH',
+      body: formData,
+    })
+  },
+
+  deleteSketchbook: (id) =>
+    request(`/sketchbooks/${id}`, { method: 'DELETE' }),
+
+  // Imagens de Sketchbook
+  createImagemDeSketchbook: (sketchbookId, data, imagem) => {
+    const formData = new FormData()
+    formData.append('nome', data.nome)
+    formData.append('descricao', data.descricao)
+    if (imagem) formData.append('imagem', imagem)
+    return request(`/sketchbooks/${sketchbookId}/imagens_de_sketchbooks`, {
+      method: 'POST',
+      body: formData,
+    })
+  },
+
+  updateImagemDeSketchbook: (sketchbookId, id, data, imagem) => {
+    const formData = new FormData()
+    formData.append('nome', data.nome)
+    formData.append('descricao', data.descricao)
+    if (imagem) formData.append('imagem', imagem)
+    return request(`/sketchbooks/${sketchbookId}/imagens_de_sketchbooks/${id}`, {
+      method: 'PATCH',
+      body: formData,
+    })
+  },
+
+  deleteImagemDeSketchbook: (sketchbookId, id) =>
+    request(`/sketchbooks/${sketchbookId}/imagens_de_sketchbooks/${id}`, {
+      method: 'DELETE',
+    }),
 }

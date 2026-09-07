@@ -33,7 +33,7 @@ export default function Navbar() {
         <Link to="https://nillecommission.carrd.co" className={styles.brand} target="_blank" rel="noopener noreferrer">
           Commissions
         </Link>
-        <Link to="/Menu" className={styles.brand}>
+        <Link to="/Sketchbook" className={styles.brand}>
           Sketchbook
         </Link>
         {user && (
@@ -68,7 +68,7 @@ export default function Navbar() {
                 <Link to="https://nillecommission.carrd.co" className={styles.overlayLink} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
                   Commissions
                 </Link>
-                <Link to="/Menu" className={styles.overlayLink} onClick={closeMenu}>
+                <Link to="/Sketchbook" className={styles.overlayLink} onClick={closeMenu}>
                   Sketchbook
                 </Link>
                 {user && (

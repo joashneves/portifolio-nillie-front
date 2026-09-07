@@ -13,6 +13,8 @@ import About from './pages/about/About'
 import Footer from './components/Footer/Footer'
 import Menu from './pages/menu/Menu'
 import Categorias from './pages/categorias/Categorias'
+import Sketchbook from './pages/sketchbook/Sketchbook'
+import PainelSketchbook from './pages/painelAdministrador/PainelSketchbook'
 
 function App() {
   return (
@@ -27,10 +29,12 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/menu" element={<Menu />} />
               <Route path="/categoria/:id" element={<Categoria />} />
+              <Route path="/sketchbook" element={<Sketchbook />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Navigate to="/dashboard/categorias" replace />} />
               <Route path="/dashboard/categorias" element={<PainelCategorias />} />
               <Route path="/dashboard/colecoes" element={<PainelColecoes />} />
+              <Route path="/dashboard/sketchbook" element={<PainelSketchbook />} />
             </Routes>
           </main>
           <Footer />
